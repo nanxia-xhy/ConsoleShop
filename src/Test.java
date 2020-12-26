@@ -14,12 +14,14 @@ public class Test {
         File file=new File("C:\\Users\\lenovo\\IdeaProjects\\ConsoleShop\\src\\Users.xlsx");
         ReadExcel re =new ReadExcel();
         User users[]=re.readExcel(file);
+        boolean flag=false;
         for(int i=0;i<users.length;i++){
-            if(username.equals(users[i].getUsername())&&password.equals(users[i].getPassword())){
+            if(username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())){
                 System.out.println("登陆成功！");
+                flag=true;
                 break;
             }
-            else {
+            else if(flag){
                 System.out.println("登陆失败");
             }
         }
